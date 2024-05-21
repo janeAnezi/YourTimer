@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const timerInput = document.getElementById('timer');
     const startButton = document.getElementById('start');
+    const timerContainer = document.querySelector('.timer-container');
     
     let countdownInterval;
     
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     startButton.addEventListener('click', function() {
+        timerContainer.style.backgroundColor = "red"
         clearInterval(countdownInterval); // Clear any existing interval
         startCountdown();
     });
