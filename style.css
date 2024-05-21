@@ -5,7 +5,7 @@
 }
 
 .container {
-    height: 450px;
+    height: 650px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -26,9 +26,23 @@
    margin-bottom: 10px;
 }
 
-#start {
+#start, #submit {
     font-size: 18px;
     padding: 4px 8px;
     background-color: rgb(2, 64, 64);
     color: white;
+}
+
+#start:hover, #submit:hover {
+    background-color: rgb(3, 107, 107) ;
+    color: white;
+}
+.start-message {
+    color: white;
+    margin-top: 20px;
+}
+.question {
+    color: white;
+    margin-top: 20px;
+    display: none;
 }
