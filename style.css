@@ -11,6 +11,21 @@
    align-items: center;
    text-align: center;
     background-color: rgba(59, 12, 76, 0.8);
+    position: relative;
+}
+.timer-container {
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto; 
+    transition: all 1s ease;
+}
+.top-right {
+    position: absolute;
+    top: 10px; 
+    right: 0; 
+    transform: none;
 }
 
 #timer {
@@ -24,8 +39,11 @@
    margin: auto;
    color: white;
    margin-bottom: 10px;
+   transition: font-size 1s ease;
 }
-
+.small-font {
+    font-size: 20px; 
+}
 #start, #submit {
     font-size: 18px;
     padding: 4px 8px;

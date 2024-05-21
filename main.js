@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     startButton.addEventListener('click', function() {
-        timerContainer.style.backgroundColor = "red"
+        
+        timerContainer.classList.add('top-right');
+        document.getElementById('timer').classList.add('small-font');
+        document.querySelector('.start-message').style.display = 'none';
+        startButton.style.display = 'none';
         clearInterval(countdownInterval); // Clear any existing interval
         startCountdown();
     });
