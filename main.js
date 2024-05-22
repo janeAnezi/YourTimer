@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (totalSeconds < 0) {
                 clearInterval(countdownInterval);
                 alert('Time is up!');
+                checkAnswers();
                 return;
             }
 
