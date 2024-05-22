@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     answerRadio.value = answerKey;
                     answerRadio.id = `question-${item.id}-${answerKey}`;
 
+                    answerRadio.addEventListener('change', () => {
+                        userAnswers[index] = answerKey;
+                    });
+
                     const answerLabel = document.createElement('label');
                     answerLabel.setAttribute('for', answerRadio.id);
                     answerLabel.innerHTML = item.answers[answerKey];
@@ -73,20 +77,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function checkAnswers() {
+        let correctAnswers = 0;
         apiData.forEach((item, index) => {
-            const selectedAnswer = document.querySelector(`input[name="question-${item.id}"]:checked`);
+            const selectedAnswer = userAnswers[index];
             if (selectedAnswer) {
-                const answerKey = selectedAnswer.value;
-                const isCorrect = item.correct_answers[`${answerKey}_correct`] === "true";
-                const answerLabel = selectedAnswer.nextElementSibling;
-
+                const isCorrect = item.correct_answers[`${selectedAnswer}_correct`] === "true";
                 if (isCorrect) {
-                    answerLabel.classList.add('correct');
-                } else {
-                    answerLabel.classList.add('incorrect');
+                    correctAnswers++;
                 }
             }
         });
+
+        const totalQuestions = apiData.length;
+        const percentage = (correctAnswers / totalQuestions) * 100;
+
+        alert(`You answered ${correctAnswers} out of ${totalQuestions} questions correctly. Your score is ${percentage.toFixed(2)}%.`);
     }
 
     let countdownInterval;
