@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Object.keys(item.answers).forEach(answerKey => {
                 if (item.answers[answerKey]) {
                     const answerItem = document.createElement('li');
+                    answerItem.classList.add('answer');
                     const answerRadio = document.createElement('input');
                     answerRadio.type = 'checkbox';
                     answerRadio.name = `question-${item.id}`;
