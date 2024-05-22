@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fetchQuizData() {
         const apiKey = CONFIG.API_KEY;
-        fetch(`https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=10`)
+        fetch(`https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=50`)
             .then(response => response.json())
             .then(data => {
                 apiData = data;
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderQuiz(data) {
         data.forEach((item, index) => {
             const questionDiv = document.createElement('div');
-            questionDiv.classList.add('question-container');
+            questionDiv.classList.add('question-section'); // Ensure this matches the class name used in showQuestion
             questionDiv.id = `question-${index}`;
             questionDiv.style.display = 'none'; // Hide all questions initially
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (item.answers[answerKey]) {
                     const answerItem = document.createElement('li');
                     const answerRadio = document.createElement('input');
-                    answerRadio.type = 'radio';
+                    answerRadio.type = 'checkbox';
                     answerRadio.name = `question-${item.id}`;
                     answerRadio.value = answerKey;
                     answerRadio.id = `question-${item.id}-${answerKey}`;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showQuestion(index) {
-        const allQuestions = document.querySelectorAll('.question-container');
+        const allQuestions = document.querySelectorAll('.question-section'); // Ensure this matches the class name used in renderQuiz
         allQuestions.forEach((question, i) => {
             question.style.display = i === index ? 'block' : 'none';
         });
