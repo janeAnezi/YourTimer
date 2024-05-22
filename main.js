@@ -63,7 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.addEventListener('click', () => {
                 showQuestion(index + 1);
             });
+
             questionDiv.appendChild(nextButton);
+
+            // Center the question section
+            questionDiv.style.position = 'absolute';
+            questionDiv.style.top = '50%';
+            questionDiv.style.left = '50%';
+            questionDiv.style.transform = 'translate(-50%, -50%)';
 
             quizContainer.appendChild(questionDiv);
         });
@@ -91,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalQuestions = apiData.length;
         const percentage = (correctAnswers / totalQuestions) * 100;
 
-        alert(`You answered ${correctAnswers} out of ${totalQuestions} questions correctly. Your score is ${percentage.toFixed(2)}%.`);
+        document.querySelector('.final-answer').innerText = (`You answered ${correctAnswers} out of ${totalQuestions} questions correctly. Your score is ${percentage.toFixed(2)}%.`);
     }
 
     let countdownInterval;

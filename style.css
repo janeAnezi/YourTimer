@@ -57,11 +57,13 @@
     color: white;
     margin-top: 20px;
 }
+
 .question-section {
     color: white;
     margin-top: 20px;
     display: none;
     margin-bottom: 20px;
+    width: 60%;
 }
 .question {
     font-weight: bold;
