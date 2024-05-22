@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 apiData = data;
                 renderQuiz(data);
-                showQuestion(0); // Show the first question initially
+                showQuestion(0); // to show the first question initially
             })
             .catch(error => console.error('Error fetching quiz data:', error));
     }
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderQuiz(data) {
         data.forEach((item, index) => {
             const questionDiv = document.createElement('div');
-            questionDiv.classList.add('question-section'); // Ensure this matches the class name used in showQuestion
+            questionDiv.classList.add('question-section'); 
             questionDiv.id = `question-${index}`;
-            questionDiv.style.display = 'none'; // Hide all questions initially
+            questionDiv.style.display = 'none'; // to hide all questions initially
 
             const questionTitle = document.createElement('div');
             questionTitle.classList.add('question');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showQuestion(index) {
-        const allQuestions = document.querySelectorAll('.question-section'); // Ensure this matches the class name used in renderQuiz
+        const allQuestions = document.querySelectorAll('.question-section'); 
         allQuestions.forEach((question, i) => {
             question.style.display = i === index ? 'block' : 'none';
         });
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.start-message').style.display = 'none';
         document.querySelector('.question-section').style.display = 'block';
         startButton.style.display = 'none';
-        clearInterval(countdownInterval); // Clear any existing interval
+        clearInterval(countdownInterval); // to Clear any existing interval
         startCountdown();
     });
 
