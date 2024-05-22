@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('submit').addEventListener('click', () => {
+        clearInterval(countdownInterval);
         checkAnswers();
     });
 
