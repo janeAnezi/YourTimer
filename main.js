@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 apiData = data;
                 renderQuiz(data);
-                showQuestion(0); // to show the first question initially
+                //showQuestion(0); // to show the first question initially
             })
             .catch(error => console.error('Error fetching quiz data:', error));
     }
