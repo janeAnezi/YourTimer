@@ -73,11 +73,9 @@
 .answers {
     list-style-type: none;
     padding: 0;
-}
-
-.answers {
     margin: 20px 0;
 }
+
 .answer {
     margin: 10px 0;
    text-align: left;
