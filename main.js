@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     answerItem.classList.add('answer');
                     const answerRadio = document.createElement('input');
                     answerRadio.type = 'checkbox';
+                    answerRadio.style.marginRight = '10px'
                     answerRadio.name = `question-${item.id}`;
                     answerRadio.value = answerKey;
                     answerRadio.id = `question-${item.id}-${answerKey}`;
